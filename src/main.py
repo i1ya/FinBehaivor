@@ -64,7 +64,9 @@ def index():
         user = User.query.filter_by(name=username).first()
 
     # Do we have answers?
-    last_question_id = TestOneResult.query.filter_by(author_id=user.id).order_by(TestOneResult.id.desc()).first()
+    last_question_id = TestOneResult.query.filter_by(author_id=user.id).count()
+
+    print (last_question_id)
 
     return render_template("index.html", last_question_id=last_question_id)
 

@@ -40,7 +40,7 @@
                     </p>
                     <!-- Buttons -->
                     {% if last_question_id %}
-                        {% if last_question_id.id >= 74 %}
+                        {% if last_question_id >= 74 %}
                             <div class="text-center text-md-left mt-5 d-flex align-items-center justify-content-center">
                                 <a href="{{url_for('calculate_result')}}" class="btn btn-success btn-icon">
                                     <span class="btn-inner--text">Посмотреть результат</span><span class="btn-inner--icon">
@@ -50,7 +50,7 @@
                             </div>
                         {% else %}
                             <div class="text-center text-md-left mt-5 d-flex align-items-center justify-content-center">
-                                <a href="{{url_for('get_question', question=last_question_id.id)}}" class="btn btn-primary btn-icon">
+                                <a href="{{url_for('get_question')}}" class="btn btn-primary btn-icon">
                                     <span class="btn-inner--text">Продолжить тест</span><span class="btn-inner--icon">
                                     <i data-feather="arrow-right"></i>
                                 </span>
