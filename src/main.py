@@ -66,8 +66,6 @@ def index():
     # Do we have answers?
     last_question_id = TestOneResult.query.filter_by(author_id=user.id).count()
 
-    print (last_question_id)
-
     return render_template("index.html", last_question_id=last_question_id)
 
 
@@ -180,10 +178,11 @@ def get_question():
 
         return render_template("question.html", user=user, question=first_question)
 
-    if last_question.id >= 74:
+    if last_question.test_one_id >= 74:
         return redirect(url_for('calculate_result'))
 
-    return render_template("question.html", user=user, question=last_question)
+    current_question = TestOne.query.get(last_question.test_one_id+1)
+    return render_template("question.html", user=user, question=current_question)
 
 
 if __name__ == "__main__":
