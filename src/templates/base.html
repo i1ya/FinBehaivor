@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru" {% block schemapage %}{% endblock %}>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="author" content="Илья Зеленчук">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='/assets/img/favicon.png') }}" type="image/png">
+    <!-- Quick CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/quick-website.css') }}" id="stylesheet">
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/libs/animate.css/animate.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/libs/@fortawesome/fontawesome-free/css/all.min.css') }} ">
+
+    {% block head_links %}
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- Header -->
+    <header class="" id="header-main">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg navbar-dark" id="navbar-main">
+            <div class="container">
+
+                <!-- Toggler -->
+                <button class="navbar-toggler order-lg-2 ml-n3 ml-lg-0" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Brand>
+                <a class="navbar-brand order-lg-1" href="{{url_for('index')}}">
+                    <img alt="Image placeholder" src="{{ url_for('static', filename='/assets/img/brand/dark.svg') }}" id="navbar-logo">
+                </a -->
+
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse navbar-collapse-overlay" id="navbar-main-collapse">
+                    <!-- Toggler -->
+                    <div class="position-relative">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <!-- Core JS  -->
+    <script src="{{ url_for('static', filename='/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/assets/libs/svg-injector/dist/svg-injector.min.js') }}" async defer></script>
+    <script src="{{ url_for('static', filename='/assets/libs/feather-icons/dist/feather.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/assets/libs/in-view/dist/in-view.min.js') }}" async defer></script>
+    <script src="{{ url_for('static', filename='/assets/libs/sticky-kit/dist/sticky-kit.min.js') }}" async defer></script>
+    <script src="{{ url_for('static', filename='/assets/libs/imagesloaded/imagesloaded.pkgd.min.js') }}" async defer></script>
+    <script src="{{ url_for('static', filename='/assets/libs/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/assets/libs/autosize/dist/autosize.min.js') }}" async defer></script>
+    <!-- Quick JS -->
+    <script src="{{ url_for('static', filename='/assets/js/quick-website.min.js') }}"></script>
+    <!-- Feather Icons -->
+    <script>
+        feather.replace({
+            'width': '1em',
+            'height': '1em'
+        })
+    </script>
+</body>
+</html>

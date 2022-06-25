@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Тест на определение финансового поведения челвоека{% endblock %}
+{% block description %}Кафедра Системного программирования Математико-механического факультета и Экономического факультета СПбГУ.{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+    <section class="slice py-8">
+        <div class="container">
+
+                    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                    {% if errors %}
+                    {%- for message in errors %}
+
+                    <div class="alert alert-info" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{message}}
+                    </div>
+                    {% endfor -%}
+                    {% endif %}
+                    {% endwith %}
+
+
+            <div class="row row-grid align-items-center">
+                <div class="col-12 col-md-5 col-lg-6 order-md-2">
+                    <!-- Image -->
+                    <figure class="w-100">
+                        <img alt="Image placeholder" src="{{ url_for('static', filename='/assets/img/svg/illustration-1.svg') }}" class="img-fluid mw-md-120">
+                    </figure>
+                </div>
+                <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                    <!-- Heading -->
+                    <h1 class="display-4 text-center text-md-left mb-3">
+                        Пройдите тест и узнаете, что <strong class="text-primary">влияет на ваши покупки</strong>
+                    </h1>
+                    <!-- Text -->
+                    <p class="lead text-center text-md-left text-muted">
+                        Это новый и крутой тест, но мне нужно больше текста про тест)
+                    </p>
+                    <!-- Buttons -->
+                    {% if last_question_id %}
+                        {% if last_question_id.id >= 74 %}
+                            <div class="text-center text-md-left mt-5 d-flex align-items-center justify-content-center">
+                                <a href="{{url_for('calculate_result')}}" class="btn btn-success btn-icon">
+                                    <span class="btn-inner--text">Посмотреть результат</span><span class="btn-inner--icon">
+                                    <i data-feather="arrow-right"></i>
+                                </span>
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="text-center text-md-left mt-5 d-flex align-items-center justify-content-center">
+                                <a href="{{url_for('get_question', question=last_question_id.id)}}" class="btn btn-primary btn-icon">
+                                    <span class="btn-inner--text">Продолжить тест</span><span class="btn-inner--icon">
+                                    <i data-feather="arrow-right"></i>
+                                </span>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="text-center text-md-left mt-5 d-flex align-items-center justify-content-center">
+                            <a href="{{url_for('get_question')}}" class="btn btn-primary btn-icon">
+                                <span class="btn-inner--text">Пройти тест</span><span class="btn-inner--icon">
+                                <i data-feather="arrow-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
