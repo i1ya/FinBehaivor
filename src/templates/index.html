@@ -4,7 +4,7 @@
 
 {% block content %}
 <!-- Main content -->
-    <section class="slice py-8">
+    <section class="slice py-4">
         <div class="container">
 
                     {% with errors = get_flashed_messages(category_filter=["error"]) %}
@@ -32,12 +32,12 @@
                 <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
                     <!-- Heading -->
                     <h1 class="display-4 text-center text-md-left mb-3">
-                        Пройдите тест и узнаете, что <strong class="text-primary">влияет на ваши покупки</strong>
+                        Пройдите тест и узнаете, к какому <strong class="text-primary">типу финансового потребителя вы относитесь</strong>
                     </h1>
-                    <!-- Text -->
+                    <!-- Text>
                     <p class="lead text-center text-md-left text-muted">
                         Это новый и крутой тест, но мне нужно больше текста про тест)
-                    </p>
+                    </p -->
                     <!-- Buttons -->
                     {% if last_question_id %}
                         {% if last_question_id >= 74 %}

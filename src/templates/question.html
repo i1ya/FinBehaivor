@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" id="questions">
                 <div class="col-12">
                     <form method="POST" action="{{url_for('get_question', question=question.id)}}" enctype="multipart/form-data">
                         <div class="row ">
@@ -75,7 +75,7 @@
 
                         <div class="row">
                             <div class="col-lg-12 pr-0 text-center">
-                                <button type="submit" class="btn btn-sm btn-primary">Ответить на вопрос</button>
+                                <button type="submit" id="submit_button" class="btn btn-sm btn-primary">Ответить на вопрос</button>
                             </div>
                         </div>
                     </form>

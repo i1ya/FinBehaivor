@@ -96,6 +96,9 @@ def calculate_result():
 
     groups_count_no = []
     groups_count_yes = []
+    res = 0
+    res_file = 0
+
     for x in [0, 1, 2, 3]:
         group_no = db.session.query(TestOneResult).join(TestOne).filter(TestOne.type == x)\
         .filter(TestOneResult.author_id == user.id).filter(TestOneResult.answer < 4)
@@ -106,7 +109,14 @@ def calculate_result():
         groups_count_no.append(group_no.count())
         groups_count_yes.append(group_yes.count())
 
-    return render_template('result.html', groups_count_no=groups_count_no, groups_count_yes=groups_count_yes)
+        if group_no.count() > res:
+            res_file = x + 1
+            res = group_no.count()
+
+    res_file = "result" + str(res_file) + ".html"
+
+    #return render_template('result.html', groups_count_no=groups_count_no, groups_count_yes=groups_count_yes)
+    return render_template(res_file)
 
 
 @app.route('/question.html', methods=['GET', 'POST'])
@@ -183,6 +193,11 @@ def get_question():
 
     current_question = TestOne.query.get(last_question.test_one_id+1)
     return render_template("question.html", user=user, question=current_question)
+
+
+@app.route('/result3.html')
+def result_1():
+    return render_template("result3.html")
 
 
 if __name__ == "__main__":
